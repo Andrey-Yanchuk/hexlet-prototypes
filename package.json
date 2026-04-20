@@ -7,7 +7,8 @@
   "scripts": {
     "jest": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "jestCoverage": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "lint": "npx eslint ."
   },
   "repository": {
     "type": "git",
