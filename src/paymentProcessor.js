@@ -1,4 +1,3 @@
-import { PaymentMethod } from "./PaymentMethod.js";
 import { CreditCardPayment } from "./CreditCardPayment.js";
 import { PayPalMethod } from "./PayPalMethod.js";
 import { CryptoPayment } from "./CryptoPayment.js";
