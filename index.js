@@ -5,7 +5,6 @@ import { PayPalMethod } from "./src/PayPalMethod.js";
 import { CryptoPayment } from "./src/CryptoPayment.js";
 import { PaymentWithLogging } from "./src/PaymentWithLogging.js";
 // Задание по теме: Наследование
-import { Node } from "./src/Node.js";
 import { PairedTag } from "./src/PairedTag.js";
 import { SingleTag } from "./src/SingleTag.js";
 /*-----------------------------------------------------*/
@@ -30,6 +29,7 @@ processPayments(payments, 100);
 const payment = new PaymentWithLogging(new CreditCardPayment("1234", "123"));
 payment.pay(100);
 /*-----------------------------------------------------*/
+// Задание по теме: Наследование
 const h1 = new PairedTag("h1", "title");
 const hr = new SingleTag("hr");
 console.log(h1.getName()); // h1
@@ -49,8 +49,8 @@ function NodeFuncDecl(name) {
 }
 const node = new NodeFuncDecl("div");
 console.log(node.name); // div
-const ArrowNode = (name) => {
-  this.name = name;
-};
+// const ArrowNode = (name) => {
+//   this.name = name;
+// };
 // console.log(new ArrowNode('span')); // TypeError: ArrowNode is not a constructor
 /*-----------------------------------------------------*/
