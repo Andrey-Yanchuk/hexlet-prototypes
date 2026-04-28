@@ -30,9 +30,27 @@ processPayments(payments, 100);
 const payment = new PaymentWithLogging(new CreditCardPayment("1234", "123"));
 payment.pay(100);
 /*-----------------------------------------------------*/
-const h1 = new PairedTag('h1', 'title');
-const hr = new SingleTag('hr');
+const h1 = new PairedTag("h1", "title");
+const hr = new SingleTag("hr");
 console.log(h1.getName()); // h1
 console.log(hr.getName()); // hr
 console.log(h1.toString()); // <h1>title</h1>
 console.log(hr.toString()); // <hr>
+/*-----------------------------------------------------*/
+// Задание по теме: Функции как объекты
+const sum = (a, b) => a + b;
+console.log(typeof sum); // function
+console.log(sum instanceof Object); // true
+console.log(sum.length); // 2
+console.log(sum.call(null, 3, 4)); // 7
+console.log(sum.apply(null, [3, 4])); // 7
+function NodeFuncDecl(name) {
+  this.name = name;
+}
+const node = new NodeFuncDecl("div");
+console.log(node.name); // div
+const ArrowNode = (name) => {
+  this.name = name;
+};
+// console.log(new ArrowNode('span')); // TypeError: ArrowNode is not a constructor
+/*-----------------------------------------------------*/
