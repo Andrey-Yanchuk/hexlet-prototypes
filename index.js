@@ -54,3 +54,17 @@ console.log(node.name); // div
 // };
 // console.log(new ArrowNode('span')); // TypeError: ArrowNode is not a constructor
 /*-----------------------------------------------------*/
+// Задание по теме: Позднее связывание
+const user = {
+  name: "Andrew",
+  getName() {
+    return this.name;
+  },
+};
+console.log(user.getName()); // Andrew
+const fn = user.getName;
+// console.log(fn()); // TypeError: Cannot read properties of undefined(reading 'name')
+const bound = user.getName.bind(user);
+console.log(bound()); // Andrew
+console.log(fn.call(user)); // Andrew
+/*-----------------------------------------------------*/
