@@ -92,3 +92,25 @@ console.log(user2.getName());
 console.log(Object.hasOwn(user1, "getName")); // true
 console.log(Object.hasOwn(user2, "getName")); // false
 /*-----------------------------------------------------*/
+// Задание по теме: Цепочки прототипов
+function A() {}
+function B() {}
+// Ошибочный вариант:
+/*
+B.prototype = A.prototype;
+B.prototype.greeting = function greeting(name = 'Unknown') {
+  return `Привет, ${name}!`;
+};
+console.log(A.prototype.greeting === B.prototype.greeting); // trueЮ потому-что происходит линковка с прототипом A */
+// Корректный вариант:
+B.prototype = Object.create(A.prototype);
+B.prototype.greeting = function greeting(name = "Unknown") {
+  return `Привет, ${name}!`;
+};
+console.log(B.prototype === A.prototype); // false, потому-что B.prototype теперь отдельный объект, который наследует от A.prototype, поэтому изменения B.prototype не затронут A.prototype
+console.log(Object.getPrototypeOf(B.prototype) === A.prototype); // true
+const obj = new B();
+console.log(Object.getPrototypeOf(obj) === B.prototype); // true
+console.log(Object.getPrototypeOf(Object.getPrototypeOf(obj)) === A.prototype); // true
+// Итоговая цепочка у экземпляра obj такая: obj -> B.protoype -> A.prototype -> Object.prototype -> null
+/*-----------------------------------------------------*/
