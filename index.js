@@ -68,3 +68,27 @@ const bound = user.getName.bind(user);
 console.log(bound()); // Andrew
 console.log(fn.call(user)); // Andrew
 /*-----------------------------------------------------*/
+// Задание по теме: Прототипы
+function User(name) {
+  this.name = name;
+}
+User.prototype.getName = function getName() {
+  return this.name;
+};
+const user1 = new User("Yan");
+const user2 = new User("Mark");
+console.log(user1.getName()); // Yan
+console.log(user2.getName()); // Mark
+console.log(Object.hasOwn(user1, "getName")); // false
+console.log(Object.hasOwn(user2, "getName")); // false
+// Свойство .prototype, есть только у функций-конструкторов, через Object.getPrototypeOf, мы получаем ссылку на этот прототип у объектов, потому что сам объект не имеет свойство .prototype
+console.log(Object.getPrototypeOf(user1) === User.prototype); // true
+console.log(Object.getPrototypeOf(user2) === User.prototype); // true
+user1.getName = function getName() {
+  return `User: ${this.name}`;
+};
+console.log(user1.getName());
+console.log(user2.getName());
+console.log(Object.hasOwn(user1, "getName")); // true
+console.log(Object.hasOwn(user2, "getName")); // false
+/*-----------------------------------------------------*/
